@@ -68,20 +68,20 @@ class Game
 	end
 end
 
-# # feature test
-# g = Game.new
-# g.play('player1', 4)
-# g.play('player2', 6)
-# g.play('player1', 2)
-# g.play('player2', 1)
-# g.play('player1', 4)
-# g.play('player2', 6)
-# g.play('player1', 3)
-# g.play('player2', 5)
-# g.play('player1', 4)
-# g.play('player2', 6)
-# g.play('player1', 2)
-# g.play('player2', 1)
+# feature test
+g = Game.new
+g.play('player1', 4)
+g.play('player2', 6)
+g.play('player1', 2)
+g.play('player2', 1)
+g.play('player1', 4)
+g.play('player2', 6)
+g.play('player1', 3)
+g.play('player2', 5)
+g.play('player1', 4)
+g.play('player2', 6)
+g.play('player1', 2)
+g.play('player2', 1)
 
 
 # Future user stories to think about while refactoring:
