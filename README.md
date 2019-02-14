@@ -1,6 +1,6 @@
 # Class Extraction exercise
 
-Refactored game.rb to extract classes.  
+Refactored game.rb to extract classes. Based on a Snakes & Ladders game.
 
 Original is game.rb containing the Game class.
 
