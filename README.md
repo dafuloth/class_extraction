@@ -13,20 +13,16 @@ Original is game.rb containing the Game class.
 
 ```ruby
 
-# feature test
+# create a game
 g = Game.new
-g.play('player1', 4)
-g.play('player2', 6)
-g.play('player1', 2)
-g.play('player2', 1)
-g.play('player1', 4)
-g.play('player2', 6)
-g.play('player1', 3)
-g.play('player2', 5)
-g.play('player1', 4)
-g.play('player2', 6)
-g.play('player1', 2)
-g.play('player2', 1)
-
 
 ```
+
+G
+
+Game objects can be initialised with a board and players: `Game.new(Board, Player, Player)`
+
+Otherwise, if not specified, the default board is used and default players are used, i.e.
+
+`Game.new` implies:  
+`Game.new(board = Board.new, player1 = Player.new("Anne", 1), player2 = Player.new("Bill", 1))`

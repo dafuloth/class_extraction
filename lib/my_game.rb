@@ -3,11 +3,9 @@ require_relative "board.rb"
 
 class Game 
 
-	def initialize
-		@player1 = Player.new("Anne", 1)
-		@player2 = Player.new("Bill", 1)
-
-		board = Board.new
+	def initialize(board = Board.new, player1 = Player.new("Anne", 1), player2 = Player.new("Bill", 1))
+		@player1 = player1
+		@player2 = player2
 
 		@snakes = board.snakes
 		@ladders = board.ladders
@@ -70,20 +68,20 @@ class Game
 	end
 end
 
-# feature test
-g = Game.new
-g.play('player1', 4)
-g.play('player2', 6)
-g.play('player1', 2)
-g.play('player2', 1)
-g.play('player1', 4)
-g.play('player2', 6)
-g.play('player1', 3)
-g.play('player2', 5)
-g.play('player1', 4)
-g.play('player2', 6)
-g.play('player1', 2)
-g.play('player2', 1)
+# # feature test
+# g = Game.new
+# g.play('player1', 4)
+# g.play('player2', 6)
+# g.play('player1', 2)
+# g.play('player2', 1)
+# g.play('player1', 4)
+# g.play('player2', 6)
+# g.play('player1', 3)
+# g.play('player2', 5)
+# g.play('player1', 4)
+# g.play('player2', 6)
+# g.play('player1', 2)
+# g.play('player2', 1)
 
 
 # Future user stories to think about while refactoring:
