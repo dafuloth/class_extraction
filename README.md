@@ -18,8 +18,6 @@ g = Game.new
 
 ```
 
-G
-
 Game objects can be initialised with a board and players: `Game.new(Board, Player, Player)`
 
 Otherwise, if not specified, the default board is used and default players are used, i.e.
