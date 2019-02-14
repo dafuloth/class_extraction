@@ -2,38 +2,30 @@ require_relative "player.rb"
 require_relative "board.rb"
 
 class Game 
-	Ladders = {
-		2 => 15,
-		5 => 7,
-		9 => 27,
-		18 => 29,
-		25 => 35
-	}
-
-	Snakes = {
-		17 => 4,
-		24 => 16,
-		32 => 30,
-		34 => 12
-	}
 
 	def initialize
-		@p1 = Player.new("Anne", 1)
-		@p2 = Player.new("Bill", 1)
+		@player1 = Player.new("Anne", 1)
+		@player2 = Player.new("Bill", 1)
 
-		puts "#{@p1} starts at position #{@p1.position}"
-		puts "#{@p2} starts at position #{@p2.position}"
+		board = Board.new
+
+		@snakes = board.snakes
+		@ladders = board.ladders
+
+
+		puts "#{@player1} starts at position #{@player1.position}"
+		puts "#{@player2} starts at position #{@player2.position}"
 		
-		@player1_position = @p1.position
-		@player2_position = @p2.position
+		@player1_position = @player1.position
+		@player2_position = @player2.position
 	end
 
 	def play(player, nb_of_steps)
 		move(player, nb_of_steps)
 		if has_finished?(player)
-			puts "#{player} wins!"
+			puts "#{player == 'player1' ? @player1 : @player2} wins!"
 		else
-			puts (player == 'player1' ? "player1: #{@player1_position}" : "player2: #{@player2_position}")
+			puts (player == 'player1' ? "#{@player1}: #{@player1_position}" : "#{@player2}: #{@player2_position}")
 		end
 	end
 
@@ -43,24 +35,24 @@ class Game
 		if player == 'player1'
 			@player1_position += nb_of_steps
 
-			# test for snakes or ladders
-			if Snakes.include?(@player1_position)
-				puts "#{player} fell on a snake :("
-				@player1_position = Snakes[@player1_position]
-			elsif Ladders.include?(@player1_position)
-				puts "#{player} fell on a ladder :)"
-				@player1_position = Ladders[@player1_position]
+			# test for @snakes or @ladders
+			if @snakes.include?(@player1_position)
+				puts "#{@player1} fell on a snake :("
+				@player1_position = @snakes[@player1_position]
+			elsif @ladders.include?(@player1_position)
+				puts "#{@player1} fell on a ladder :)"
+				@player1_position = @ladders[@player1_position]
 			end
 		elsif player == 'player2'
 			@player2_position += nb_of_steps
 
-			# test for snakes or ladders
-			if Snakes.include?(@player2_position)
-				puts "#{player} fell on a snake :("
-				@player2_position = Snakes[@player2_position]
-			elsif Ladders.include?(@player2_position)
-				puts "#{player} fell on a ladder :)"
-				@player2_position = Ladders[@player2_position]
+			# test for @snakes or @ladders
+			if @snakes.include?(@player2_position)
+				puts "#{@player2} fell on a snake :("
+				@player2_position = @snakes[@player2_position]
+			elsif @ladders.include?(@player2_position)
+				puts "#{@player2} fell on a ladder :)"
+				@player2_position = @ladders[@player2_position]
 			end
 		else
 			fail 'Invalid player'
